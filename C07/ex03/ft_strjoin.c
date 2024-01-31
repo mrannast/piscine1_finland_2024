@@ -6,7 +6,7 @@
 /*   By: mrannast <mrannast@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:07:50 by mrannast          #+#    #+#             */
-/*   Updated: 2024/01/30 18:10:06 by mrannast         ###   ########.fr       */
+/*   Updated: 2024/01/31 15:18:09 by mrannast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,10 @@ char	*create_str(int size, char **strs, char *sep)
 	}
 	len += str_len(sep) * (size - 1);
 	if (size <= 0)
-	{
 		len = 1;
-	}
 	str = (char *)malloc(sizeof(char) * len);
 	if (!str)
-	{
 		return (0);
-	}
 	return (str);
 }
 
@@ -65,20 +61,19 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		j = 0;
 		while (strs[i][j])
 		{
-			str[k++] = strs[i][j];
-			j++;
+			str[k++] = strs[i][j++];
 		}
 		j = 0;
 		while (sep[j] && i != size - 1)
 		{
-			str[k++] = sep[j];
-			j++;
+			str[k++] = sep[j++];
 		}
 	}
 	str[k] = '\0';
 	return (str);
 }
-/*#include <unistd.h>
+/*
+#include <unistd.h>
 
 int ft_putstr(char *str)
 {
@@ -92,7 +87,7 @@ int ft_putstr(char *str)
 
 int main()
 {
-    char *strs[] = {"Hello", "world", "from", "ChatGPT"};
+    char *strs[] = {"Hello", "world", "from", "my", "brains"};
     char *sep = "**--__--**";
     char *result = ft_strjoin(2, strs, sep);
 
